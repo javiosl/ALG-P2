@@ -1,6 +1,6 @@
 /**
  * @file buscandokesimo.cpp
- * @author Javier Osakar Lozano
+ * @author Grupo 2
  * @brief Algoritmo Búsqueda del K-Ésimo
  * @date 2023-03-31
  * 
