@@ -57,6 +57,7 @@ int buscarElemento (int v[], int k, int n)
 
 int main(int argc, char * argv[])
 {	
+  clock_t tantes, tdespues;
 	//Comprobación del número de argumentos
 	if (argc != 3)
 	{
@@ -84,11 +85,17 @@ int main(int argc, char * argv[])
 	srand(time(0));
 	for (int j=0; j<n; j++) 
 		v[j] = rand()%n;
-	
+
+	//valor de reloj antes de llamada
+	tantes=clock();
 	//Llamada a la función para buscar el k-ésimo menor elemento
 	elem = buscarElemento(v, pos, n);
-	
+	//valor del reloj después de ejecución
+  	tdespues=clock();
+
 	//Borrar el vector
+	cout<< n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC <<endl;
+
 	delete [] v;
 	
 	return 0;
