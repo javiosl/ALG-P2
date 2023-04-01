@@ -23,35 +23,36 @@ int buscarElemento (int v[], int k, int n)
 	int cont = 0;  //posición actual (número de posiciones recorridas)
 	
 	//Copia del vector para no modificar el original
+/*
 	int * copia = new int[n];    
 	for(int i = 0; i<n; i++)
 		copia[i] = v[i];
-	
+	*/
 	//Mientras que la posición actual es menor o igual que k, busca los elementos más 
 	//pequeños y los coloca en orden al principio
 	while (cont <= k){                 
 		indice_menor = cont;           
-    	menor = copia[cont];           
+    	menor = v[cont];           
     	
     	//Busca el elemento más pequeño de la parte del vector que aún no ha sido ordenada
 		for (int i = cont; i < n; i++)
-			if (copia[i] < menor) {
+			if (v[i] < menor) {
 				indice_menor = i;
-				menor = copia[i];
+				menor = v[i];
 			}
 		
 		//Intercambia las posiciones del elemento más pequeño y el elemento de la posición
 		//actual  
-		aux = copia[cont];
-		copia[cont] = copia[indice_menor];
-		copia[indice_menor] = aux;
+		aux = v[cont];
+		v[cont] = v[indice_menor];
+		v[indice_menor] = aux;
 		
 		cont++;  //incrementa la posición actual
 	}
 	
-	delete [] copia;  //borra la copia
+
 	
-	return copia[cont-1];  //devuelve el elemento en la posición k del vector medio ordenado
+	return v[cont-1];  //devuelve el elemento en la posición k del vector medio ordenado
 }
 
 
@@ -82,9 +83,9 @@ int main(int argc, char * argv[])
 	assert(v);
 	
 	//Inicialización del vector con elementos random
-	srand(time(0));
+	srandom(time(0));
 	for (int j=0; j<n; j++) 
-		v[j] = rand()%n;
+		v[j] = random();
 
 	//valor de reloj antes de llamada
 	tantes=clock();
