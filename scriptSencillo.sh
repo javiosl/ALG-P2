@@ -1,6 +1,6 @@
 echo "" >> salida.dat
-a=30
-for ((P=500;P<=70000;P=P+500))
+a=2
+for ((P=7500;P<=187500;P=P+7500))
 do 
 B=$(( $P - $a ))
  ./buscandokesimo-sencillo $P $B >> salidaSencillo.dat
