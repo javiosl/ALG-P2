@@ -42,13 +42,13 @@ int kEsimoSencillo (int v[], int k, int n)
 	// pequeños y los coloca en orden al principio
 	while (cont <= k){                 
 		indice_menor = cont;           
-    	menor = copia[cont];           
+    	menor = v[cont];           
     	
     	// Busca el elemento más pequeño de la parte del vector que aún no ha sido ordenada
 		for (int i = cont; i < n; i++)
-			if (copia[i] < menor) {
+			if (v[i] < menor) {
 				indice_menor = i;
-				menor = copia[i];
+				menor = v[i];
 			}
 		
 		// Intercambia las posiciones del elemento más pequeño y el elemento de la posición
