@@ -15,15 +15,15 @@
 using namespace std;
 
 /**
- * @brief 
+ * @brief Algoritmo de Búsqueda del K-Ésimo Elemento (Versión Sencilla)
  * 
- * Dados un vector numérico y una posición, devuelve el elemento que se encontraría en
- * dicha posición si el vector estuviese ordenado de menor a mayor.
+ * Dados un vector de enteros que puede tener repetidos, desordenado, y una posición, devuelve
+ * el elemento que se encontraría en dicha posición si el vector estuviese ordenado de menor
+ * a mayor.
  * 
- * Utiliza una variación del método de selección para encontrar el elemento en la posición k
- * del hipotético vector ordenado.
+ * Utiliza una variación del algoritmo de ordenación por selección para ordenar el vector.
  * 
- * @param v vector numérico de n elementos
+ * @param v vector de enteros sobre el que se realiza la búsqueda
  * @param k posición del vector cuyo elemento se devuelve
  * @param n número de elementos del vector. n > 0
  * @return int elemento en la posición k del vector medio ordenado
@@ -32,11 +32,6 @@ int kEsimoSencillo (int v[], int k, int n)
 {	
 	int indice_menor, menor, aux;
 	int cont = 0;  // Posición actual (número de posiciones recorridas)
-	
-	// Copia del vector para no modificar el original
-	int * copia = new int[n];    
-	for(int i = 0; i<n; i++)
-		copia[i] = v[i];
 	
 	// Mientras que la posición actual es menor o igual que k, busca los elementos más 
 	// pequeños y los coloca en orden al principio
@@ -53,16 +48,14 @@ int kEsimoSencillo (int v[], int k, int n)
 		
 		// Intercambia las posiciones del elemento más pequeño y el elemento de la posición
 		// actual  
-		aux = copia[cont];
-		copia[cont] = copia[indice_menor];
-		copia[indice_menor] = aux;
+		aux = v[cont];
+		v[cont] = v[indice_menor];
+		v[indice_menor] = aux;
 		
 		cont++;  // Incrementa la posición actual
 	}
 	
-	delete [] copia;  // Borra la copia
-	
-	return copia[cont-1];  // Devuelve el elemento en la posición k del vector medio ordenado
+	return v[cont-1];  // Devuelve el elemento en la posición k del vector medio ordenado
 }
 
 
@@ -81,7 +74,7 @@ int main(int argc, char * argv[])
 	int elem;
 
 	// Comprobación de la corrección de los argumentos
-	if (k < 0 || k >= n || n<1)
+	if (k < 0 || k >= n || n < 1)
 	{
 		cerr << "Error: 0 <= k < num_elem" << endl;
 		return -1;
@@ -96,7 +89,8 @@ int main(int argc, char * argv[])
 	
 	// Inicialización del vector con elementos random
 	srand(time(0));
-	for (int j=0; j<n; j++){
+	for (int j=0; j<n; j++)
+	{
 		v[j] = rand()%n;
 	}
 
@@ -104,13 +98,13 @@ int main(int argc, char * argv[])
 	tantes=clock();
 
 	// Llamada a la función para buscar el k-ésimo menor elemento
-	elem = kEsimoSencillo(v, k, n);
+	elem = kEsimoSencillo(v,k,n);
 
 	// Valor del reloj después de ejecución
   	tdespues=clock();
 
 	// Impresión del tamaño del problema y el tiempo tomado por pantalla
-	cout<< n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC <<endl;
+	cout << n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC << endl;
 
 	// Borrado del vector en memoria dinámica
 	delete [] v;
