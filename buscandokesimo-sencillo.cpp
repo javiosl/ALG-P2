@@ -109,7 +109,7 @@ int main(int argc, char * argv[])
 	// Valor del reloj después de ejecución
   	tdespues=clock();
 
-	// Impresión de los resultados por pantalla
+	// Impresión del tamaño del problema y el tiempo tomado por pantalla
 	cout<< n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC <<endl;
 
 	// Borrado del vector en memoria dinámica
