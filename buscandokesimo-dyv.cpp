@@ -30,8 +30,8 @@ using namespace std;
  * encontrar el elemento k-ésimo.
  * 
  * @param v vector de enteros sobre el que se realiza la búsqueda
- * @param k posición en el vector a buscar
- * @param n tamaño del vector
+ * @param k posición del elemento a buscar en el vector
+ * @param n número de enteros en el vector
  * @return int valor del elemento encontrado en la posición k del vector ordenado
  */
 int kEsimoDyV(int v[], int k, int n){

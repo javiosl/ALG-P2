@@ -24,9 +24,9 @@ using namespace std;
  * Utiliza una variación del algoritmo de ordenación por selección para ordenar el vector.
  * 
  * @param v vector de enteros sobre el que se realiza la búsqueda
- * @param k posición del vector cuyo elemento se devuelve
- * @param n número de elementos del vector. n > 0
- * @return int elemento en la posición k del vector medio ordenado
+ * @param k posición del elemento a buscar en el vector
+ * @param n número de enteros en el vector
+ * @return int valor del elemento encontrado en la posición k del vector ordenado
  */
 int kEsimoSencillo (int v[], int k, int n)
 {	
