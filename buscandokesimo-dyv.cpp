@@ -123,7 +123,7 @@ int main(int argc, char * argv[]){
 	// Impresión del tamaño del problema y el tiempo tomado por pantalla
 	cout << n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC << endl;
 
-	// Borrado del vector en memoria dinámica
+	// Liberación de memoria asignada para el vector
 	delete [] v;
 	
 	return 0;
