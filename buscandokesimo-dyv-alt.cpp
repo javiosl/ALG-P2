@@ -1,7 +1,7 @@
 /**
  * @file buscandokesimo-dyv-alt.cpp
  * @author Javier Osakar Lozano
- * @brief Buscando K-Ésimo versión Divide y Vencerás
+ * @brief Buscando K-Ésimo versión Divide y Vencerás Alternativa
  * @date 2023-04-02
  * 
  */
