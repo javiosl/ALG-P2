@@ -105,7 +105,7 @@ int main(int argc, char * argv[]){
 	int * v = new int[n];
 	assert(v);
 	
-	// Inicialización del vector con elementos random
+	// Inicialización del vector con elementos aleatorios
 	srand(time(0));
 	for (int j=0; j<n; j++){
 		v[j] = rand()%n;
