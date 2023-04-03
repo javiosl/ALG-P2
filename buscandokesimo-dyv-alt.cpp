@@ -41,8 +41,10 @@ int kEsimoDyV(int v[], int k, int n){
         return v[0];
     }
     
-	// Cogemos un elemento del vector como pivote
-    int pivote = v[0];
+	// Cogemos un elemento aleatorio del vector como pivote
+    int pivote;
+	srand(time(0));
+	pivote = rand()%n;
 	
 	// Dividimos el vector en dos subvectores: uno con elementos menores
 	// que el pivote y otro con elementos iguales o mayores
