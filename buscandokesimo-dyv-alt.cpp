@@ -1,5 +1,5 @@
 /**
- * @file buscandokesimo-dyv.cpp
+ * @file buscandokesimo-dyv-alt.cpp
  * @author Javier Osakar Lozano
  * @brief Buscando K-Ésimo versión Divide y Vencerás
  * @date 2023-04-02
@@ -15,7 +15,7 @@
 using namespace std;
 
 /**
- * @brief Algoritmo de Búsqueda del K-Ésimo Elemento (Versión Divide y Vencerás)
+ * @brief Algoritmo de Búsqueda del K-Ésimo Elemento (Versión Divide y Vencerás Alternativa)
  * 
  * La idea es dividir el vector en dos grupos de elementos: uno que contenga
  * elementos menores que un pivote elegido aleatoriamente y otro que contenga
