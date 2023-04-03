@@ -34,7 +34,7 @@ using namespace std;
  * @param n número de enteros en el vector
  * @return int valor del elemento encontrado en la posición k del vector ordenado
  */
-int kEsimoDyV(int v[], int k, int n){
+int kEsimoDyVAlt(int v[], int k, int n){
     
     // Si el vector tiene solo un elemento, se devuelve ese elemento.
     if (n == 1) {
@@ -70,14 +70,14 @@ int kEsimoDyV(int v[], int k, int n){
 	// Si el tamaño del subvector con elementos menores es mayor que k-1, en-
 	// tonces el elemento k-ésimo está en el subvector de elementos menores
 	else if (menores_tam > k-1) {
-        return kEsimoDyV(menores, menores_tam, k);
+        return kEsimoDyVAlt(menores, menores_tam, k);
     }
 
 	// Si el tamaño del subvector con elementos menores es menor que k-1, enton-
 	// ces el elemento k-ésimo está en el subvector de elementos mayores, y se
 	// busca recursivamente la posición k-ésima en ese subvector
 	else {
-        return kEsimoDyV(mayores, mayores_tam, k-menores_tam-1);
+        return kEsimoDyVAlt(mayores, mayores_tam, k-menores_tam-1);
     }
 }
 
@@ -117,7 +117,7 @@ int main(int argc, char * argv[]){
 	tantes=clock();
 
 	// Llamada a la función para buscar el k-ésimo menor elemento
-	elem = kEsimoDyV(v,k,n);
+	elem = kEsimoDyVAlt(v,k,n);
 
 	// Valor del reloj después de ejecución
   	tdespues=clock();
