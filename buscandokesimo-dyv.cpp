@@ -12,6 +12,8 @@
 #include <climits>
 #include <cassert>
 
+#include <vector>
+
 using namespace std;
 
 /**
@@ -31,60 +33,78 @@ using namespace std;
  * 
  * @param v vector de enteros sobre el que se realiza la búsqueda
  * @param k posición del elemento a buscar en el vector
- * @param n número de enteros en el vector
  * @return int valor del elemento encontrado en la posición k del vector ordenado
  */
-int kEsimoDyV(int v[], int k, int n){
-    
-    // Si el vector tiene solo un elemento, se devuelve ese elemento.
-    if (n == 1) {
+int kEsimoDyV(vector<int> &v, int k){
+	
+	// Si el vector tiene solo un elemento, se devuelve ese elemento.
+	if(v.size() == 1){
         return v[0];
     }
-    
+
+			cout << "Vector dentro de la funcion: " << endl;
+			for(int i=0; i<v.size(); i++){
+				cout << v[i] << " ";
+			}
+			cout << endl;
+
 	// Cogemos un elemento aleatorio del vector como pivote
-    int pivote;
 	srand(time(0));
-	pivote = rand()%n;
+    int pivote_indice = rand()%v.size();
+	int pivote = v[pivote_indice];
+
+			cout << "Indice: " << pivote_indice << endl;
+			cout << "Elemento: " << pivote << endl;
 	
 	// Dividimos el vector en dos subvectores: uno con elementos menores
 	// que el pivote y otro con elementos iguales o mayores
-	int * menores = new int[n];
-	int * mayores = new int[n];
-	int menores_tam = 0, mayores_tam = 0;
-    for (int i = 1; i < n; i++) {
-        if (v[i] < pivote) {
-			// Al poner el "++" después de la variable, el acceso se hace
-			// en la posición del vector "menores_tam" anterior al incremento
-            menores[menores_tam++] = v[i];
-        } else {
-            menores[mayores_tam++] = v[i];
+    vector<int> menores, mayores;
+    for(int i = 0; i < v.size(); i++){
+        if(i == pivote_indice){
+			continue;
+		}else if(v[i] < pivote){
+            menores.push_back(v[i]);
+        }else{
+            mayores.push_back(v[i]);
         }
     }
-    
+
+			cout << "Vector mayores: " << endl;
+			for(int i=0; i<mayores.size(); i++){
+				cout << mayores[i] << " ";
+			}
+			cout << endl;
+
+			cout << "Vector menores: " << endl;
+			for(int i=0; i<menores.size(); i++){
+				cout << menores[i] << " ";
+			}
+			cout << endl;
+
 	// Si el tamaño del subvector con elementos menores es k-1, entonces el
 	// pivote es el elemento k-ésimo
-    if (menores_tam == k-1) {
+    if(menores.size() == k-1){
         return pivote;
     }
-
+	
 	// Si el tamaño del subvector con elementos menores es mayor que k-1, en-
 	// tonces el elemento k-ésimo está en el subvector de elementos menores
-	else if (menores_tam > k-1) {
-        return kEsimoDyV(menores, menores_tam, k);
+	else if(menores.size() > k-1){
+        return kEsimoDyV(menores, k);
     }
-
+	
 	// Si el tamaño del subvector con elementos menores es menor que k-1, enton-
 	// ces el elemento k-ésimo está en el subvector de elementos mayores, y se
 	// busca recursivamente la posición k-ésima en ese subvector
-	else {
-        return kEsimoDyV(mayores, mayores_tam, k-menores_tam-1);
+	else{
+        return kEsimoDyV(mayores, k-menores.size()-1);
     }
 }
 
 int main(int argc, char * argv[]){	
     
     // Comprobación del número de argumentos
-	if (argc != 3){
+	if(argc != 3){
 		cerr << "Formato " << argv[0] << " <num_elem> <k>" << endl;
 		return -1;
 	}
@@ -104,29 +124,33 @@ int main(int argc, char * argv[]){
 	clock_t tantes, tdespues;
 
 	// Declaración del vector
-	int * v = new int[n];
-	assert(v);
+	vector<int> v;
 	
 	// Inicialización del vector con elementos aleatorios
 	srand(time(0));
 	for (int j=0; j<n; j++){
-		v[j] = rand()%n;
+		v.push_back(rand()%n);
 	}
+
+			cout << "El vector es: " << endl;
+			for(int i=0; i<n; i++){
+				cout << v[i] << " ";
+			}
+			cout << endl;
 
 	// Valor de reloj antes de la llamada
 	tantes=clock();
 
 	// Llamada a la función para buscar el k-ésimo menor elemento
-	elem = kEsimoDyV(v,k,n);
+	elem = kEsimoDyV(v,k);
 
 	// Valor del reloj después de ejecución
   	tdespues=clock();
 
+	cout << "Y el k elemento menor es: " << elem << endl;
+
 	// Impresión del tamaño del problema y el tiempo tomado por pantalla
 	cout << n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC << endl;
-
-	// Liberación de memoria asignada para el vector
-	delete [] v;
 	
 	return 0;
 
