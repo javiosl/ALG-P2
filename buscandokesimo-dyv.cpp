@@ -42,19 +42,23 @@ int kEsimoDyV(vector<int> &v, int k){
         return v[0];
     }
 
-			cout << "Vector dentro de la funcion: " << endl;
-			for(int i=0; i<v.size(); i++){
-				cout << v[i] << " ";
-			}
-			cout << endl;
+	/*
+	cout << "Vector dentro de la funcion: " << endl;
+	for(int i=0; i<v.size(); i++){
+		cout << v[i] << " ";
+	}
+	cout << endl;
+	*/
 
 	// Cogemos un elemento aleatorio del vector como pivote
 	srand(time(0));
     int pivote_indice = rand()%v.size();
 	int pivote = v[pivote_indice];
 
-			cout << "Indice: " << pivote_indice << endl;
-			cout << "Elemento: " << pivote << endl;
+	/*
+	cout << "Indice: " << pivote_indice << endl;
+	cout << "Elemento: " << pivote << endl;
+	*/
 	
 	// Dividimos el vector en dos subvectores: uno con elementos menores
 	// que el pivote y otro con elementos iguales o mayores
@@ -69,17 +73,19 @@ int kEsimoDyV(vector<int> &v, int k){
         }
     }
 
-			cout << "Vector mayores: " << endl;
-			for(int i=0; i<mayores.size(); i++){
-				cout << mayores[i] << " ";
-			}
-			cout << endl;
+	/*
+	cout << "Vector mayores: " << endl;
+	for(int i=0; i<mayores.size(); i++){
+		cout << mayores[i] << " ";
+	}
+	cout << endl;
 
-			cout << "Vector menores: " << endl;
-			for(int i=0; i<menores.size(); i++){
-				cout << menores[i] << " ";
-			}
-			cout << endl;
+	cout << "Vector menores: " << endl;
+	for(int i=0; i<menores.size(); i++){
+		cout << menores[i] << " ";
+	}
+	cout << endl;
+	*/
 
 	// Si el tamaño del subvector con elementos menores es k-1, entonces el
 	// pivote es el elemento k-ésimo
@@ -147,7 +153,9 @@ int main(int argc, char * argv[]){
 	// Valor del reloj después de ejecución
   	tdespues=clock();
 
+	/*
 	cout << "Y el k elemento menor es: " << elem << endl;
+	*/
 
 	// Impresión del tamaño del problema y el tiempo tomado por pantalla
 	cout << n << " "<< (double)(tdespues-tantes) / CLOCKS_PER_SEC << endl;
