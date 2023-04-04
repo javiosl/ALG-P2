@@ -138,11 +138,13 @@ int main(int argc, char * argv[]){
 		v.push_back(rand()%n);
 	}
 
-			cout << "El vector es: " << endl;
-			for(int i=0; i<n; i++){
-				cout << v[i] << " ";
-			}
-			cout << endl;
+	/*
+	cout << "El vector es: " << endl;
+	for(int i=0; i<n; i++){
+		cout << v[i] << " ";
+	}
+	cout << endl;
+	*/
 
 	// Valor de reloj antes de la llamada
 	tantes=clock();
