@@ -26,7 +26,7 @@ using namespace std;
  * Luego se compara la cantidad de elementos del grupo de menores con la posición
  * k. Si es igual, entonces el pivote es el elemento k-ésimo. Si es menor, se
  * busca el k-ésimo elemento en el grupo de menores, y si es mayor se busca el
- * k-ésimo elemento en el grupo de mayores.
+ * k-ésimo elemento en el grupo de iguales o mayores.
  * 
  * Este proceso se repite recursivamente en cada uno de los subgrupos hasta
  * encontrar el elemento k-ésimo.
@@ -100,8 +100,8 @@ int kEsimoDyV(vector<int> &v, int k){
     }
 	
 	// Si el tamaño del subvector con elementos menores es menor que k-1, enton-
-	// ces el elemento k-ésimo está en el subvector de elementos mayores, y se
-	// busca recursivamente la posición k-ésima en ese subvector
+	// ces el elemento k-ésimo está en el subvector de elementos iguales o mayores,
+	// y se busca recursivamente la posición k-ésima en ese subvector
 	else{
         return kEsimoDyV(mayores, k-menores.size()-1);
     }
