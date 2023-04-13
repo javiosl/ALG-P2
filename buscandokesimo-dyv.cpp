@@ -87,6 +87,9 @@ int kEsimoDyV(vector<int> &v, int k){
 	cout << endl;
 	*/
 
+	// Escogemos el vector en el que hacer recursión dependiendo del tamaño
+	// que tengan
+
 	// Si el tamaño del subvector con elementos menores es k-1, entonces el
 	// pivote es el elemento k-ésimo
     if(menores.size() == k-1){
