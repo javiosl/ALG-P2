@@ -18,7 +18,7 @@ done
 # Ejecutamos ahora solo el algoritmo DyV con tamaños de 75000 a 1875000 con un
 # incremento de 75000 para percibir un cambio en el tiempo de ejecución
 
-for ((P=7500000;P<=187500000;P=P+7500000))
+for ((P=7500000;P<=187500000;P=P+1500000))
 do
 B=$(( $P - $a ))
 ./buscandokesimo-dyv $P $B >> ./salidas/salida-dyv-alt.dat
